@@ -25,7 +25,7 @@ function App() {
     return (
       <div data-testid="app">
         <header>
-          <h1>React Gallery</h1>
+          <h1>My Sweet Pets and One Goat:</h1>
         </header>
         <div 
         data-testid="galleryList"
