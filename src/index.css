@@ -24,6 +24,12 @@ h3 {
   text-align: center;
   padding: 0;
 }
+.gallery-form {
+  padding: 1em;
+  margin: 2em;
+  max-width: 800px;
+  border: 1px solid black;
+}
 
 .ItemList {
   margin: 2em;
