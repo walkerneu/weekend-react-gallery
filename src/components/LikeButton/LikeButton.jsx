@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Button from '@mui/material/Button';
 
 function LikeButton ({likes, imgId, getImgs}) {
     const addLike = () => {
@@ -13,11 +14,13 @@ function LikeButton ({likes, imgId, getImgs}) {
     }
 
     return (
-        <button
+        <Button
+            variant="outlined"
+            color="secondary"
             onClick={addLike} 
             data-testid="like">
                 {likes} Likes! 👍
-        </button>
+        </Button>
     )
 }
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Button from '@mui/material/Button';
 
 function DeleteButton({getImgs, imgId}) {
 
@@ -14,7 +15,12 @@ function DeleteButton({getImgs, imgId}) {
       }
 
       return (
-        <button onClick={deleteImg}>Remove</button>
+        <Button 
+            onClick={deleteImg}
+            variant="outlined"
+            color="error">
+                Remove
+        </Button>
       )
 
 }

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import { Input } from '@mui/material';
 
 function GalleryForm({getImgs}) {
     let [urlInput, setUrlInput] = useState('')
@@ -28,30 +30,43 @@ function GalleryForm({getImgs}) {
 
     return (
         <>
-
-         <h2>Add an Image of one of my cats:</h2>
                 <form 
-                    onSubmit={handleSubmit}
                     className="gallery-form">
-                <input
-                    type="text"
-                    placeholder="URL"
-                    value={urlInput}
-                    onChange={(evt) => setUrlInput(evt.target.value)}
-                    />  
-                <input
-                    type="text"
-                    placeholder="Title"
-                    value={titleInput}
-                    onChange={(evt) => setTitleInput(evt.target.value)}
-                    />
-                    <input
-                    type="text"
-                    placeholder="Description"
-                    value={descriptionInput}
-                    onChange={(evt) => setDescriptionInput(evt.target.value)}
-                    />
-                    <button>submit</button>
+                <h2>Add an Image of one of my cats:</h2>
+                    <Input
+                        id="standard-basic" 
+                        label="URL" 
+                        variant="standard"
+                        type="text"
+                        placeholder="URL"
+                        value={urlInput}
+                        onChange={(evt) => setUrlInput(evt.target.value)}
+                        />  
+                    <Input
+                        id="standard-basic" 
+                        label="Title" 
+                        variant="standard"
+                        type="text"
+                        placeholder="Title"
+                        value={titleInput}
+                        onChange={(evt) => setTitleInput(evt.target.value)}
+                        />
+                    <Input
+                        id="standard-basic" 
+                        label="Description" 
+                        variant="standard"
+                        type="text"
+                        placeholder="Description"
+                        value={descriptionInput}
+                        onChange={(evt) => setDescriptionInput(evt.target.value)}
+                        />
+                    <Button 
+                        variant="outlined"
+                        color="secondary"
+                        onClick={handleSubmit}
+                    >
+                        submit
+                    </Button>
 
                 </form>
         
