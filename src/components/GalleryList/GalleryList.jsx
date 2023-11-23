@@ -1,19 +1,15 @@
-function GalleryList ({ imgGroup }) {
+import GalleryItem from "../GalleryItem/GalleryItem";
+
+function GalleryList ({ imgGroup, getImgs }) {
 
     return (
         <>
         {imgGroup.map( img => (
-            <div 
-            key={img.id}
-            data-testid="galleryItem"
-            >
-              <div>
-                <h3>{img.title}</h3>
-                <img width="200" height="200" src={img.url}/>
-                <p>{img.description}</p>
-                <button data-testid="like">{img.likes} Likes! 👍</button>
-              </div>
-            </div>
+            <GalleryItem
+                img={img}
+                getImgs={getImgs}
+                key={img.id}
+            />
           ))}
           </>
     )

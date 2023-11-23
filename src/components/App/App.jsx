@@ -27,9 +27,12 @@ function App() {
         <header>
           <h1>React Gallery</h1>
         </header>
-        <div data-testid="galleryList">
+        <div 
+        data-testid="galleryList"
+        className="ItemList">
         <GalleryList 
           imgGroup={imgGroup}
+          getImgs={getImgs}
         />
         </div>
       </div>
