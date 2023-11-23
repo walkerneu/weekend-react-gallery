@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import LikeButton from "../LikeButton/LikeButton";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
 function GalleryItem({img, getImgs}) {
   const [displayDescription, setDisplayDescription] = useState(false)
@@ -36,6 +37,10 @@ function GalleryItem({img, getImgs}) {
       </div>
       <LikeButton 
             likes={img.likes}
+            imgId={img.id}
+            getImgs={getImgs}
+        />
+        <DeleteButton 
             imgId={img.id}
             getImgs={getImgs}
         />
