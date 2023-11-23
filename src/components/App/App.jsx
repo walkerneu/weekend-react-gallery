@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
+import GalleryForm from '../GalleryForm/GalleryForm';
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
         <header>
           <h1>My Sweet Pets and One Goat:</h1>
         </header>
+        <GalleryForm 
+          getImgs={getImgs}
+        />
         <div 
         data-testid="galleryList"
         className="ItemList">
