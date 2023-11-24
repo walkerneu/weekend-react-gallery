@@ -10,13 +10,9 @@ router.post('/upload', upload.single('uploaded_file'), async (req, res) => {
   // req.body will hold the text fields, if there were any
   console.log('req, req.file, req.body', req, req.file, req.body)
     // Upload image to cloudinary
-  const result = await cloudinary.uploader.upload(req.file.path)
+  const result = await cloudinary.uploader.upload(req.file.path, { public_id: req.body.name } )
   console.log('result', result)
-  //   { public_id: req.body.name }, 
-  //   function(error, result) {console.log(result); });
-  //   console.log(req.file, req.body, result.secure_url)
-  
-    const sqlText = `
+  const sqlText = `
       INSERT INTO "gallery" 
           ("url", "title", "description")
         VALUES 
