@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
-import { Input } from '@mui/material';
+import { TextField } from '@mui/material';
 
 function GalleryForm({getImgs}) {
     let [urlInput, setUrlInput] = useState('')
     let [titleInput, setTitleInput] = useState('')
     let [descriptionInput, setDescriptionInput] = useState('')
 
-    const addImg = () => {
-    
-        axios.post('/gallery', { url: urlInput, title: titleInput, description: descriptionInput})
+    const addImg = () => {    
+        axios.post('/gallery', { 
+            url: urlInput, 
+            title: titleInput, 
+            description: descriptionInput
+        })
           .then(response => {
             setUrlInput('');
             setTitleInput('');
@@ -22,10 +25,10 @@ function GalleryForm({getImgs}) {
             console.log(err);
           })
     }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         addImg();
-
     }
 
     return (
@@ -33,7 +36,7 @@ function GalleryForm({getImgs}) {
                 <form 
                     className="gallery-form">
                 <h2>Add an Image of one of my cats:</h2>
-                    <Input
+                    <TextField
                         id="standard-basic" 
                         label="URL" 
                         variant="standard"
@@ -42,7 +45,7 @@ function GalleryForm({getImgs}) {
                         value={urlInput}
                         onChange={(evt) => setUrlInput(evt.target.value)}
                         />  
-                    <Input
+                    <TextField
                         id="standard-basic" 
                         label="Title" 
                         variant="standard"
@@ -51,7 +54,7 @@ function GalleryForm({getImgs}) {
                         value={titleInput}
                         onChange={(evt) => setTitleInput(evt.target.value)}
                         />
-                    <Input
+                    <TextField
                         id="standard-basic" 
                         label="Description" 
                         variant="standard"
