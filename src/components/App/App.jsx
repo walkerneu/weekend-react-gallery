@@ -31,18 +31,15 @@ function App() {
           <h1>My Sweet Pets and One Goat:</h1>
         </header>
         <UploadForm 
-          getImgs={getImgs}
-        />
+          getImgs={getImgs}/>
         <GalleryForm 
-          getImgs={getImgs}
-        />
+          getImgs={getImgs}/>
         <div 
-        data-testid="galleryList"
-        className="gallery-list">
-        <GalleryList 
-          imgGroup={imgGroup}
-          getImgs={getImgs}
-        />
+          data-testid="galleryList"
+          className="gallery-list">
+          <GalleryList 
+            imgGroup={imgGroup}
+            getImgs={getImgs}/>
         </div>
       </div>
     );

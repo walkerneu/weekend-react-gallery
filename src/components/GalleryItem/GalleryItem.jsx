@@ -12,9 +12,12 @@ function GalleryItem({img, getImgs}) {
   const displayToggle = () => {
     if (displayDescription) {
       return (
-        <div className="descriptionBox" >{img.description}</div>
+        <div className="descriptionBox" >
+            {img.description}
+        </div>
       )
-    } else {
+    } 
+    else {
       return (
         <>
           <img width="200" height="200" src={img.url}/>
@@ -24,32 +27,25 @@ function GalleryItem({img, getImgs}) {
   }
 
   return (
+
     <div
       data-testid="galleryItem"
-      className="gallery-item" 
-      >
-      <h3>{img.title}</h3>
-      <div
-        data-testid="toggle"
-        className="image-box" 
-        onClick={toggleDescription}
-        >
-            {displayToggle()}
-      </div>
-      <LikeButton 
+      className="gallery-item">
+        <h3>{img.title}</h3>
+        <div
+            data-testid="toggle"
+            className="image-box" 
+            onClick={toggleDescription}>
+                {displayToggle()}
+        </div>
+        <LikeButton 
             likes={img.likes}
             imgId={img.id}
-            getImgs={getImgs}
-        />
+            getImgs={getImgs}/>
         <DeleteButton 
             imgId={img.id}
-            getImgs={getImgs}
-        />
+            getImgs={getImgs}/>
     </div>
-    
-
-
-
   )
 }
 

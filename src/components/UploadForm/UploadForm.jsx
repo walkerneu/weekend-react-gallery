@@ -18,29 +18,29 @@ const VisuallyHiddenInput = styled('input')({
 
 function UploadForm ({ getImgs }) {
 
-    let [titleInput, setTitleInput] = useState('')
-    let [descriptionInput, setDescriptionInput] = useState('')
+    // let [titleInput, setTitleInput] = useState('')
+    // let [descriptionInput, setDescriptionInput] = useState('')
 
-    const uploadImg = () => {    
-        axios.post('/gallery/upload', { 
-            title: titleInput, 
-            description: descriptionInput
-        })
-          .then(response => {
-            setTitleInput('');
-            setDescriptionInput('');
-            getImgs();
-          })
-          .catch(err => {
-            alert('Error Adding shopping items');
-            console.log(err);
-          })
-    }
+    // const uploadImg = () => {    
+    //     axios.post('/gallery/upload', { 
+    //         title: titleInput, 
+    //         description: descriptionInput
+    //     })
+    //       .then(response => {
+    //         setTitleInput('');
+    //         setDescriptionInput('');
+    //         getImgs();
+    //       })
+    //       .catch(err => {
+    //         alert('Error Adding shopping items');
+    //         console.log(err);
+    //       })
+    // }
 
     const handleSubmit = (event) => {
         setTimeout(function(){
             location.reload();
-        }, 2500);   
+        }, 2000);   
     }
 
     return (
@@ -67,16 +67,14 @@ function UploadForm ({ getImgs }) {
                 type="text" 
                 className="form-control" 
                 placeholder="Image Title" 
-                name="name"
-                />
+                name="name"/>
             <TextField
                 id="standard-basic" 
                 label="Description" 
                 variant="standard" 
                 type="text" 
                 placeholder="Image Description" 
-                name="description"
-                />
+                name="description"/>
             <Button 
                 variant="outlined"
                 color="secondary"
@@ -84,7 +82,8 @@ function UploadForm ({ getImgs }) {
                 value="Submit Photo" 
                 className="btn btn-default"
                 onClick={handleSubmit}>
-                    Upload Photo</Button>
+                    Upload Photo
+            </Button>
             </div>
         </form>
         </>
