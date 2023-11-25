@@ -38,7 +38,9 @@ function UploadForm ({ getImgs }) {
     }
 
     const handleSubmit = (event) => {
-        setTimeout(location.reload(true), 300)   
+        setTimeout(function(){
+            location.reload();
+        }, 2500);   
     }
 
     return (
@@ -52,7 +54,7 @@ function UploadForm ({ getImgs }) {
             <Button 
                 component="label" 
                 variant="contained">
-                    Upload file
+                    Choose File
                 <VisuallyHiddenInput 
                 type="file" 
                 className="form-control-file" 
@@ -82,7 +84,7 @@ function UploadForm ({ getImgs }) {
                 value="Submit Photo" 
                 className="btn btn-default"
                 onClick={handleSubmit}>
-                    Submit Photo</Button>
+                    Upload Photo</Button>
             </div>
         </form>
         </>
