@@ -26,11 +26,12 @@ function GalleryItem({img, getImgs}) {
   return (
     <div
       data-testid="galleryItem"
-      className="Item" 
+      className="gallery-item" 
       >
       <h3>{img.title}</h3>
       <div
-        data-testid="toggle" 
+        data-testid="toggle"
+        className="image-box" 
         onClick={toggleDescription}
         >
             {displayToggle()}

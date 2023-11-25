@@ -37,7 +37,7 @@ h3 {
   border: 1px solid black;
 }
 
-.ItemList {
+.gallery-list {
   margin: 2em;
   max-width: 1000px;
   border: 1px solid black;
@@ -45,13 +45,14 @@ h3 {
   flex-wrap: wrap;
 }
 
-.Item {
+.gallery-item {
   margin: 1em;
   border: 1px solid black;
   padding: 1em;
+  align-content: center;
 }
 
-.Item button {
+.gallery-item button {
   margin: .5em;
 }
 
@@ -59,4 +60,10 @@ h3 {
   width: 200px;
   height: 200px;
   border: 1px solid black;
+  align-items: center;
+}
+.image-box {
+  margin: 1em;
+  border: 1px solid black;
+  padding: 1em;
 }

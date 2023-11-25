@@ -38,7 +38,7 @@ function App() {
         />
         <div 
         data-testid="galleryList"
-        className="ItemList">
+        className="gallery-list">
         <GalleryList 
           imgGroup={imgGroup}
           getImgs={getImgs}
