@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 
 function GalleryForm({getImgs}) {
     let [urlInput, setUrlInput] = useState('')
@@ -35,7 +34,7 @@ function GalleryForm({getImgs}) {
         <>
                 <form 
                     className="gallery-form">
-                <h2>Add an Image of one of my cats:</h2>
+                <h2>Add an Image of one of my cats from the internet:</h2>
                     <TextField
                         id="standard-basic" 
                         label="URL" 

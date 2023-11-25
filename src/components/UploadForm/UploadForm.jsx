@@ -1,7 +1,22 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { styled } from '@mui/material/styles';
+import { TextField, Button  } from '@mui/material';
 
-function UploadForm () {
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
+
+function UploadForm ({ getImgs }) {
 
     let [titleInput, setTitleInput] = useState('')
     let [descriptionInput, setDescriptionInput] = useState('')
@@ -23,9 +38,9 @@ function UploadForm () {
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        uploadImg();
+        setTimeout(location.reload(true), 300)   
     }
+
     return (
         <>
         <form 
@@ -33,24 +48,41 @@ function UploadForm () {
             encType="multipart/form-data" 
             method="post">
             <div className="form-group">
-            <h2>Upload a Photo of One of my Cats:</h2>
-            <input 
+            <h2>Upload a Photo of One of my Cats from your computer:</h2>
+            <Button 
+                component="label" 
+                variant="contained">
+                    Upload file
+                <VisuallyHiddenInput 
                 type="file" 
                 className="form-control-file" 
                 name="uploaded_file" />
-            <input 
+            </Button> 
+            <TextField
+                id="standard-basic" 
+                label="Title" 
+                variant="standard"
                 type="text" 
                 className="form-control" 
                 placeholder="Image Title" 
-                name="name"/>
-            <input 
+                name="name"
+                />
+            <TextField
+                id="standard-basic" 
+                label="Description" 
+                variant="standard" 
                 type="text" 
                 placeholder="Image Description" 
-                name="description"/>
-            <input 
+                name="description"
+                />
+            <Button 
+                variant="outlined"
+                color="secondary"
                 type="submit" 
                 value="Submit Photo" 
-                className="btn btn-default" />
+                className="btn btn-default"
+                onClick={handleSubmit}>
+                    Submit Photo</Button>
             </div>
         </form>
         </>

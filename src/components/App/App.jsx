@@ -30,7 +30,9 @@ function App() {
         <header>
           <h1>My Sweet Pets and One Goat:</h1>
         </header>
-        <UploadForm />
+        <UploadForm 
+          getImgs={getImgs}
+        />
         <GalleryForm 
           getImgs={getImgs}
         />
