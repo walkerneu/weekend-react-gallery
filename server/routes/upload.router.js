@@ -5,7 +5,7 @@ const multer  = require('multer')
 const cloudinary = require("../utils/cloudinary");
 const upload = multer({ dest: './public/data/uploads/' })
 
-router.post('/', upload.single('uploaded_file'), async (req, res) => {
+router.post('/', upload.single("file"), async (req, res) => {
     // req.file is the name of your file in the form, here 'uploaded_file'
     // req.body will hold the text fields, if there were any
     console.log('req.file, req.body', req.file, req.body)
@@ -20,7 +20,7 @@ router.post('/', upload.single('uploaded_file'), async (req, res) => {
       pool.query(sqlText, [result.secure_url, req.body.name, req.body.description])
           .then((result) => {
             console.log(`Added image to the database`);
-            res.sendStatus(204);
+            res.sendStatus(201);
           })
           .catch((dbError) => {
             console.log("upload image failed", dbError);

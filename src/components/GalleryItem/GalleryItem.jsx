@@ -25,36 +25,32 @@ function GalleryItem({img, getImgs}) {
     } 
     else {
       return (
-        <CardMedia
-          component="img"
-          height="250"
-          width="250"
-          image={img.url}
-        />
+        <>
+          <img width="230" height="235" src={img.url}/>
+        </>
       )
     }
   }
 
   return (
-
+    <>
     <div
       data-testid="galleryItem"
       className="gallery-item">
         <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-        
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {img.title}
           </Typography>
+          <CardActionArea>
           <div
             data-testid="toggle"
             className="image-box" 
             onClick={toggleDescription}>
                 {displayToggle()}
           </div>
+          </CardActionArea>
         </CardContent>
-      </CardActionArea>
       <CardActions>
         <LikeButton 
             likes={img.likes}
@@ -66,6 +62,7 @@ function GalleryItem({img, getImgs}) {
       </CardActions>  
     </Card>
     </div>
+    </>
   )
 }
 

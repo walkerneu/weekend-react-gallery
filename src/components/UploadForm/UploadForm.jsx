@@ -17,37 +17,36 @@ const VisuallyHiddenInput = styled('input')({
 
 function UploadForm ({ getImgs }) {
 
-    // let [titleInput, setTitleInput] = useState('')
-    // let [descriptionInput, setDescriptionInput] = useState('')
+    let [titleInput, setTitleInput] = useState('')
+    let [descriptionInput, setDescriptionInput] = useState('')
+    let [fileInput, setFileInput] = useState('');
+    const fileForm = new FormData ();
 
-    // const uploadImg = () => {    
-    //     axios.post('/gallery/upload', { 
-    //         title: titleInput, 
-    //         description: descriptionInput
-    //     })
-    //       .then(response => {
-    //         setTitleInput('');
-    //         setDescriptionInput('');
-    //         getImgs();
-    //       })
-    //       .catch(err => {
-    //         alert('Error Adding shopping items');
-    //         console.log(err);
-    //       })
-    // }
+    const uploadImg = () => {
+        fileForm.append("name", titleInput);
+        fileForm.append("description", descriptionInput);
+        fileForm.append("file", fileInput);
+        console.log("fileForm", fileForm);    
+        axios.post('/upload', fileForm)
+          .then(response => {
+            setTitleInput('');
+            setDescriptionInput('');
+            getImgs();
+          })
+          .catch(err => {
+            alert('Error uploading image!');
+            console.log(err);
+          })
+    }
 
     const handleSubmit = (event) => {
-        setTimeout(function(){
-            location.reload();
-        }, 2000);   
+        event.preventDefault();
+        uploadImg();  
     }
 
     return (
         <>
-        <form 
-            action="/upload" 
-            encType="multipart/form-data" 
-            method="post">
+        <form>
             <div className="form-group">
             <h2>Upload a Photo of One of my Cats from your computer:</h2>
             <Button 
@@ -57,7 +56,8 @@ function UploadForm ({ getImgs }) {
                 <VisuallyHiddenInput 
                     type="file" 
                     className="form-control-file" 
-                    name="uploaded_file" />
+                    name="uploaded_file"
+                    onChange={(evt) => setFileInput(evt.target.files[0])} />
             </Button> 
             <TextField
                 id="standard-basic" 
@@ -66,20 +66,23 @@ function UploadForm ({ getImgs }) {
                 type="text" 
                 className="form-control" 
                 placeholder="Image Title" 
-                name="name"/>
+                name="name"
+                value={titleInput}
+                onChange={(evt) => setTitleInput(evt.target.value)}/>
             <TextField
                 id="standard-basic" 
                 label="Description" 
                 variant="standard" 
                 type="text" 
                 placeholder="Image Description" 
-                name="description"/>
+                name="description"
+                value={descriptionInput}
+                onChange={(evt) => setDescriptionInput(evt.target.value)}/>
             <Button 
                 variant="outlined"
                 color="secondary"
                 type="submit" 
                 value="Submit Photo" 
-                className="btn btn-default"
                 onClick={handleSubmit}>
                     Upload Photo
             </Button>
