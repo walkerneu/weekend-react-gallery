@@ -22,8 +22,6 @@ function DeleteButton({getImgs, imgId}) {
                 Remove
         </Button>
       )
-
 }
-
 
 export default DeleteButton;

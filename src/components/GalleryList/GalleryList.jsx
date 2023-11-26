@@ -8,8 +8,7 @@ function GalleryList ({ imgGroup, getImgs }) {
             <GalleryItem
                 img={img}
                 getImgs={getImgs}
-                key={img.id}
-            />
+                key={img.id}/>
           ))}
           </>
     )

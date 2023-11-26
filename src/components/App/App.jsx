@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
 import GalleryForm from '../GalleryForm/GalleryForm';
+import UploadForm from '../UploadForm/UploadForm';
 
 function App() {
 
@@ -19,25 +20,26 @@ function App() {
       })
   }
 
-
   useEffect(() => {
     getImgs()
   }, [])
+
     return (
+
       <div data-testid="app">
         <header>
           <h1>My Sweet Pets and One Goat:</h1>
         </header>
+        <UploadForm 
+          getImgs={getImgs}/>
         <GalleryForm 
-          getImgs={getImgs}
-        />
+          getImgs={getImgs}/>
         <div 
-        data-testid="galleryList"
-        className="ItemList">
-        <GalleryList 
-          imgGroup={imgGroup}
-          getImgs={getImgs}
-        />
+          data-testid="galleryList"
+          className="gallery-list">
+          <GalleryList 
+            imgGroup={imgGroup}
+            getImgs={getImgs}/>
         </div>
       </div>
     );
