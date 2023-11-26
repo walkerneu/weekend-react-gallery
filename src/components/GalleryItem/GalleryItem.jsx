@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import LikeButton from "../LikeButton/LikeButton";
 import DeleteButton from "../DeleteButton/DeleteButton";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import CardActions from '@mui/material/CardActions';
 
 function GalleryItem({img, getImgs}) {
   const [displayDescription, setDisplayDescription] = useState(false)
@@ -12,16 +18,19 @@ function GalleryItem({img, getImgs}) {
   const displayToggle = () => {
     if (displayDescription) {
       return (
-        <div className="descriptionBox" >
+        <Typography className="descriptionBox" variant="body2" color="text.secondary">
             {img.description}
-        </div>
+          </Typography>
       )
     } 
     else {
       return (
-        <>
-          <img width="200" height="200" src={img.url}/>
-        </>
+        <CardMedia
+          component="img"
+          height="250"
+          width="250"
+          image={img.url}
+        />
       )
     }
   }
@@ -31,13 +40,22 @@ function GalleryItem({img, getImgs}) {
     <div
       data-testid="galleryItem"
       className="gallery-item">
-        <h3>{img.title}</h3>
-        <div
+        <Card sx={{ maxWidth: 345 }}>
+        <CardActionArea>
+        
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {img.title}
+          </Typography>
+          <div
             data-testid="toggle"
             className="image-box" 
             onClick={toggleDescription}>
                 {displayToggle()}
-        </div>
+          </div>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
         <LikeButton 
             likes={img.likes}
             imgId={img.id}
@@ -45,6 +63,8 @@ function GalleryItem({img, getImgs}) {
         <DeleteButton 
             imgId={img.id}
             getImgs={getImgs}/>
+      </CardActions>  
+    </Card>
     </div>
   )
 }

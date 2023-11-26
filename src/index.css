@@ -45,12 +45,12 @@ h3 {
   flex-wrap: wrap;
 }
 
-.gallery-item {
+/* .gallery-item {
   margin: 1em;
   border: 1px solid black;
   padding: 1em;
   align-content: center;
-}
+} */
 
 .gallery-item button {
   margin: .5em;
@@ -59,10 +59,11 @@ h3 {
 .descriptionBox {
   width: 200px;
   height: 200px;
-  border: 1px solid black;
+  border: 1px dotted black;
   align-items: center;
 }
 .image-box {
+  
   margin: 1em;
   border: 1px solid black;
   padding: 1em;

@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { styled } from '@mui/material/styles';
 import { TextField, Button  } from '@mui/material';
 
-
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
   clipPath: 'inset(50%)',
@@ -54,11 +53,11 @@ function UploadForm ({ getImgs }) {
             <Button 
                 component="label" 
                 variant="contained">
-                    Choose File
+                Choose File
                 <VisuallyHiddenInput 
-                type="file" 
-                className="form-control-file" 
-                name="uploaded_file" />
+                    type="file" 
+                    className="form-control-file" 
+                    name="uploaded_file" />
             </Button> 
             <TextField
                 id="standard-basic" 
