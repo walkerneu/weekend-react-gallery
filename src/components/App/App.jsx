@@ -15,7 +15,7 @@ function App() {
         setImgGroup(response.data)
       })
       .catch(err => {
-        alert('error getting guests');
+        alert('error getting image gallery');
         console.log(err);
       })
   }

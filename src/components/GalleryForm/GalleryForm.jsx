@@ -20,7 +20,7 @@ function GalleryForm({getImgs}) {
             getImgs();
           })
           .catch(err => {
-            alert('Error Adding shopping items');
+            alert('Error adding image!');
             console.log(err);
           })
     }
