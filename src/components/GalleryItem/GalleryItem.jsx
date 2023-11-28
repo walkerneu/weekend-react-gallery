@@ -20,7 +20,7 @@ function GalleryItem({img, getImgs}) {
       return (
         <Typography className="descriptionBox" variant="body2" color="text.secondary">
             {img.description}
-          </Typography>
+        </Typography>
       )
     } 
     else {
